@@ -1,0 +1,27 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+    <script src="lib/jquery/jquery.min.js"></script>
+</head>
+<body>
+    <button id="TestBtnID">Test</button>
+    <pre id="preOutID"></pre>
+    <script>
+        $ function() {
+            var getCategories = function () {
+                var url = "api/values";
+                $.get(url).always(ShowResponse)
+                return false;
+            };
+            var ShowResponse = function (object) {
+                $("#preOutID").text(JSON.stringify(object, null, 4));
+            };
+            
+            $("#TestBtnID").click(getCategories);
+            //document.getElementById("TestBtnID").innerHTML = "DSSSS";
+        }
+    </script>
+</body>
+</html>
